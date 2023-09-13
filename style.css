@@ -1,0 +1,88 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.container {
+  width: 634px;
+  height: 797px;
+  padding: 40px;
+  background: #E6E6E6;
+  border-radius: 15px;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 30px;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: 1fr 0.4fr;
+  height: 65px;
+}
+
+.controls__input {
+  background: white;
+  border-radius: 10px 0 0 10px;
+  border: none;
+  font-size: 18px;
+  padding: 0 20px;
+}
+
+.controls__btn {
+  background: #FBCC28;
+  border-radius: 0 10px 10px 0;
+  border: none;
+  font-size: 18px;
+}
+
+.controls__btn:hover {
+  cursor: pointer;
+  background: #f3cc3f;
+}
+
+.todo-field {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.todo-field__item {
+  background: #FFEBEB;
+  padding: 30px 20px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 20px;
+  font-size: 18px;
+}
+
+.todo-field__item_done {
+  background: #EBFFED;
+}
+
+.todo-field__item_done .todo-field__item-text {
+  text-decoration: line-through;
+}
+
+.todo-field__item-input {
+  transform: scale(2);
+}
+
+.todo-field__item:hover {
+  cursor: pointer;
+}
