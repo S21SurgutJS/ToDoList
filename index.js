@@ -58,7 +58,7 @@ function createItem({ text, isDone }, itemCount) {
 
   /*Считываем значение из input и записываем в массив
   после чего обновляем элементы*/
-  setListenerToAddButton(controlButton);
+  controlButton.addEventListener('click', addTodoHandler);
 
   /*Считываем значение номера пункта записи и удаляем элемент из массива
   после чего обновляем элементы*/
@@ -70,21 +70,20 @@ function createItem({ text, isDone }, itemCount) {
   /*Отслеживанием изменение checkbox и изменяем свойство isDone в соответствующем элементе массива*/
   todoInput.addEventListener(('change'), () => {
     taskList[todoInput.dataset.number].isDone = todoInput.checked;
-    // render();
-  });
+  }, {once: true});
+  /* параметр {once: true} - удаляет обработчик событий после одного запуска, в противном случае этот обработчик, даже после удаления элемента из DOM-дерева, будет висеть в памяти */
 }
 
-function setListenerToAddButton(element) {
-  element.addEventListener('click', (e) => {
-    e.preventDefault();
-    const text = controlInput.value;
-    if (text.trim().length) {
-      createItem(controlInput.value);
-      taskList.push({ text: text, isDone: false });
-      render();
-      controlInput.value = '';
-    }
-  });
+function addTodoHandler(e) {
+  /* так как инпут находится в форме, отменяем поедение по умолчанию - отправку формы */
+  e.preventDefault();
+  const text = controlInput.value;
+  if (text.trim().length) {
+    createItem(controlInput.value);
+    taskList.push({ text: text, isDone: false });
+    render();
+    controlInput.value = '';
+  }
 }
 
 render();
