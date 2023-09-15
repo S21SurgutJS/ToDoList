@@ -27,7 +27,7 @@
   grid-template-rows: auto 1fr;
   gap: 20px;
   width: 635px;
-  min-height: 797px;
+  height: 797px;
   padding: 40px;
   border-radius: 15px;
   background-color: #E6E6E6;
@@ -72,6 +72,7 @@
   padding: 20px;
   border-radius: 15px;
   background-color: #FFFFFF;
+  overflow: scroll;
 }
 
 .todo-list__item {
@@ -80,7 +81,7 @@
   align-items: center;
   margin: 0;
   padding: 0;
-  height: 85px;
+  min-height: 85px;
   background-color: #FFEBEB;
   list-style: none;
 }
