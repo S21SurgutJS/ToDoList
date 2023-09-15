@@ -48,7 +48,7 @@ function createItem({ text, isDone }, itemCount) {
 
   const todoImg = document.createElement('img');
   todoImg.className = 'todo-list__img';
-  todoImg.src = 'img/basket.svg';
+  todoImg.src = 'img/bascket.svg';
   todoImg.alt = 'Удалить todo';
   todoListButton.appendChild(todoImg);
 
