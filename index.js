@@ -57,7 +57,8 @@ function createItem({ text, isDone }, itemCount) {
 
   /*Считываем значение из input и записываем в массив
   после чего обновляем элементы*/
-  controlButton.addEventListener('click', () => {
+  controlButton.addEventListener('click', (e) => {
+    e.preventDefault();
     const todoText = controlInput.value;
     if (todoText.trim().length) {
       createItem(controlInput.value);
