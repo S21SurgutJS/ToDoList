@@ -31,6 +31,7 @@ function createItem({ text, isDone }, itemCount) {
   todoInput.className = 'todo-list__checkbox';
   todoInput.type = 'checkbox';
   todoInput.checked = isDone;
+  todoInput.name = 'пометка о выполнении задачи';
   todoInput.setAttribute('data-number', itemCount);
   todoLabel.appendChild(todoInput);
 
@@ -57,16 +58,7 @@ function createItem({ text, isDone }, itemCount) {
 
   /*Считываем значение из input и записываем в массив
   после чего обновляем элементы*/
-  controlButton.addEventListener('click', (e) => {
-    e.preventDefault();
-    const todoText = controlInput.value;
-    if (todoText.trim().length) {
-      createItem(controlInput.value);
-      taskList.push({ text: todoText, isDone: false });
-      render();
-      controlInput.value = '';
-    }
-  });
+  setListenerToAddButton(controlButton);
 
   /*Считываем значение номера пункта записи и удаляем элемент из массива
   после чего обновляем элементы*/
@@ -79,6 +71,19 @@ function createItem({ text, isDone }, itemCount) {
   todoInput.addEventListener(('change'), () => {
     taskList[todoInput.dataset.number].isDone = todoInput.checked;
     // render();
+  });
+}
+
+function setListenerToAddButton(element) {
+  element.addEventListener('click', (e) => {
+    e.preventDefault();
+    const text = controlInput.value;
+    if (text.trim().length) {
+      createItem(controlInput.value);
+      taskList.push({ text: text, isDone: false });
+      render();
+      controlInput.value = '';
+    }
   });
 }
 
