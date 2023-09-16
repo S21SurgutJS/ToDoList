@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -31,6 +36,7 @@
   padding: 40px;
   border-radius: 15px;
   background-color: #E6E6E6;
+  overflow: hidden;
 }
 
 .controls {
@@ -72,7 +78,7 @@
   padding: 20px;
   border-radius: 15px;
   background-color: #FFFFFF;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .todo-list__item {
@@ -108,6 +114,7 @@
 }
 
 .todo-list__btn {
+  position: relative;
   margin: 0;
   padding: 0;
   width: 76px;
@@ -132,4 +139,8 @@
 
 .todo-list__item:has(.todo-list__checkbox:checked) {
   background-color: #EBFFED;
+}
+
+@media (max-width = 280px) {
+
 }
