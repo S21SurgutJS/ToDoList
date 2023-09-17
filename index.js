@@ -11,28 +11,26 @@ const controlButton = document.querySelector('.controls__btn');
 const controlInput = document.querySelector('.controls__input');
 const todoList = document.querySelector('.todo-list');
 
-function render(itemCount = 0) {
+function render() {
   todoList.innerHTML = '';
-  taskList.forEach(elem => {
-    createItem(elem, itemCount);
-    itemCount++;
-  })
+  taskList.forEach((elem, index) => {
+    createItem(elem, index);
+  });
 }
 
-function createItem({ text, isDone }, itemCount) {
+function createItem ({text, isDone}, index) {
   const item = document.createElement('li');
   item.className = 'todo-list__item';
 
   const todoLabel = document.createElement('label');
   todoLabel.className = 'todo-list__label';
-  // todoLabel.setAttribute.name = 'todo-done';
 
   const todoInput = document.createElement('input');
   todoInput.className = 'todo-list__checkbox';
   todoInput.type = 'checkbox';
   todoInput.checked = isDone;
   todoInput.name = 'пометка о выполнении задачи';
-  todoInput.setAttribute('data-number', itemCount);
+  todoInput.setAttribute('data-number', index);
   todoLabel.appendChild(todoInput);
 
   const todoText = document.createElement('p');
@@ -45,45 +43,34 @@ function createItem({ text, isDone }, itemCount) {
   const todoListButton = document.createElement('button');
   todoListButton.className = 'todo-list__btn';
   todoListButton.innerHTML = `<span class = "visually-hidden">Удалить запись</span>`;
-  todoListButton.setAttribute('data-number', itemCount);
+  todoListButton.setAttribute('data-number', index);
 
   const todoImg = document.createElement('img');
   todoImg.className = 'todo-list__img';
   todoImg.src = 'img/bascket.svg';
-  todoImg.alt = 'Удалить todo';
   todoListButton.appendChild(todoImg);
 
   item.appendChild(todoListButton);
   todoList.appendChild(item);
 
-  /*Считываем значение из input и записываем в массив
-  после чего обновляем элементы*/
-  controlButton.addEventListener('click', addTodoHandler);
-
-  /*Считываем значение номера пункта записи и удаляем элемент из массива
-  после чего обновляем элементы*/
   todoListButton.addEventListener(('click'), () => {
     taskList.splice(todoListButton.dataset.number, 1);
     render();
-  });
+  })
 
-  /*Отслеживанием изменение checkbox и изменяем свойство isDone в соответствующем элементе массива*/
-  todoInput.addEventListener(('change'), () => {
-    taskList[todoInput.dataset.number].isDone = todoInput.checked;
-  }, {once: true});
-  /* параметр {once: true} - удаляет обработчик событий после одного запуска, в противном случае этот обработчик, даже после удаления элемента из DOM-дерева, будет висеть в памяти */
+  todoInput.addEventListener(('change'), checkboxHandler);
 }
 
-function addTodoHandler(e) {
-  /* так как инпут находится в форме, отменяем поедение по умолчанию - отправку формы */
-  e.preventDefault();
+controlButton.addEventListener('click', addTodoHandler);
+
+function addTodoHandler(event) {
+  event.preventDefault();
   const text = controlInput.value;
   if (text.trim().length) {
-    createItem(controlInput.value);
     taskList.push({ text: text, isDone: false });
     render();
-    controlInput.value = '';
   }
+  controlInput.value = '';
 }
 
 render();
