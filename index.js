@@ -17,15 +17,18 @@ function render() {
   todoList.innerHTML = '';
   if (localStorage.length) {
     let keys = Object.keys(localStorage);
+    elemId = Math.max(...keys);
+    elemId++;
     for (let key of keys) {
       let item = JSON.parse(localStorage.getItem(key));
       createItem(item, key);
     }
-  } else {
-    taskList.forEach((elem, index) => {
-      createItem(elem, index);
-    });
   }
+  // else {
+  //   taskList.forEach((elem, index) => {
+  //     createItem(elem, index);
+  //   });
+  // }
 }
 
 function createItem ({text, isDone}, index) {
@@ -86,8 +89,6 @@ function addTodoHandler(event) {
   if (text.trim().length) {
     const item = { text: text, isDone: false };
     localStorage.setItem(elemId, JSON.stringify(item));
-    elemId++;
-    console.log(elemId);
     render();
   }
   controlInput.value = '';
