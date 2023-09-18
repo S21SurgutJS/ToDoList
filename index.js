@@ -1,11 +1,13 @@
 'use-strict';
 
-const taskList = [
-  {
-    text: 'Some todo text',
-    isDone: true,
-  }
-]
+// let taskList = [
+//   {
+//     text: 'Default todo',
+//     isDone: true,
+//   }
+// ]
+
+let elemId = 0;
 
 const controlButton = document.querySelector('.controls__btn');
 const controlInput = document.querySelector('.controls__input');
@@ -13,9 +15,17 @@ const todoList = document.querySelector('.todo-list');
 
 function render() {
   todoList.innerHTML = '';
-  taskList.forEach((elem, index) => {
-    createItem(elem, index);
-  });
+  if (localStorage.length) {
+    let keys = Object.keys(localStorage);
+    for (let key of keys) {
+      let item = JSON.parse(localStorage.getItem(key));
+      createItem(item, key);
+    }
+  } else {
+    taskList.forEach((elem, index) => {
+      createItem(elem, index);
+    });
+  }
 }
 
 function createItem ({text, isDone}, index) {
@@ -54,11 +64,18 @@ function createItem ({text, isDone}, index) {
   todoList.appendChild(item);
 
   todoListButton.addEventListener(('click'), () => {
-    taskList.splice(todoListButton.dataset.number, 1);
+    localStorage.removeItem(todoListButton.dataset.number);
     render();
   })
 
   todoInput.addEventListener(('change'), checkboxHandler);
+}
+
+function checkboxHandler(event) {
+  let key = event.target.dataset.number;
+  let text = event.target.nextSibling.innerHTML;
+  let isDone = event.target.checked;
+  localStorage.setItem(key, JSON.stringify({text, isDone}));
 }
 
 controlButton.addEventListener('click', addTodoHandler);
@@ -67,7 +84,10 @@ function addTodoHandler(event) {
   event.preventDefault();
   const text = controlInput.value;
   if (text.trim().length) {
-    taskList.push({ text: text, isDone: false });
+    const item = { text: text, isDone: false };
+    localStorage.setItem(elemId, JSON.stringify(item));
+    elemId++;
+    console.log(elemId);
     render();
   }
   controlInput.value = '';
