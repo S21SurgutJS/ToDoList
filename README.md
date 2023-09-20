@@ -1,2 +1,1 @@
-# ToDoList
-Second study project
+# ToDo
