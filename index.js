@@ -53,13 +53,14 @@ function createItem({ text, isDone }, index) {
   todoList.appendChild(item);
 
   todoListButton.addEventListener(('click'), deleteTodoHandler);
+  // console.log(todoListButton.dataset.number);
 
   todoInput.addEventListener(('change'), checkboxHandler);
 }
 
 function checkboxHandler(event) {
-  let index = event.target.dataset.number;
-  taskList[index].isDone = event.target.checked;
+  let index = event.currentTarget.dataset.number;
+  taskList[index].isDone = event.currentTarget.checked;
   localStorage.setItem(todoKey, JSON.stringify(taskList));
 }
 
@@ -78,7 +79,7 @@ function addTodoHandler(event) {
 }
 
 function deleteTodoHandler(event) {
-  let index = event.target.dataset.number;
+  let index = event.currentTarget.dataset.number;
   taskList.splice(index, 1);
   localStorage.setItem(todoKey, JSON.stringify(taskList));
   render();
