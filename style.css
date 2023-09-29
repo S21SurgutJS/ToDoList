@@ -122,15 +122,16 @@
   height: 100%;
   border: none;
   background-color: transparent;
-  cursor: pointer;
-}
-
-.todo-list__img {
+  background-image: url('./img/bascket.svg');
+  background-repeat: no-repeat;
+  background-position: center center;
   opacity: .5;
+  background-size: 30px;
+  cursor: pointer;
   transition: opacity ease-in-out 0.3s;
 }
 
-.todo-list__btn:hover .todo-list__img {
+.todo-list__btn:hover {
   opacity: 1;
 }
 
@@ -183,14 +184,10 @@
 
   .todo-list__btn {
     width: 50px;
+    background-size: 20px;
   }
 
   .controls__btn:hover {
     border-radius: 0 0 10px 10px;
   }
-
-  .todo-list__img {
-    width: 20px;
-  }
-
 }

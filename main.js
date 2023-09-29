@@ -1,22 +1,10 @@
 'use-strict';
-// import { setTodos } from './setTodos.js';
-// import { getTodos } from './getTodos.js';
 import { setTodos, getTodos } from './modules/todoManager.js';
-import { taskList } from './modules/constants.js';
-
-// let taskList = [];
-// const todoKey = 'todoList';
-
-const controlButton = document.querySelector('.controls__btn');
-const controlInput = document.querySelector('.controls__input');
-const todoList = document.querySelector('.todo-list');
+import { taskList, controlButton, controlInput, todoList } from './modules/constants.js';
 
 function render() {
   todoList.innerHTML = '';
-  if (localStorage.length) {
-    taskList.length = 0;
-    taskList.push(...getTodos());
-  }
+  getTodos(taskList);
   taskList.forEach((elem, index) => {
     createItem(elem, index);
   });
@@ -48,11 +36,6 @@ function createItem({ text, isDone }, index) {
   todoListButton.className = 'todo-list__btn';
   todoListButton.innerHTML = `<span class = "visually-hidden">Удалить запись</span>`;
   todoListButton.setAttribute('data-number', index);
-
-  const todoImg = document.createElement('img');
-  todoImg.className = 'todo-list__img';
-  todoImg.src = 'img/bascket.svg';
-  todoListButton.appendChild(todoImg);
 
   item.appendChild(todoListButton);
   todoList.appendChild(item);
