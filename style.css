@@ -134,7 +134,7 @@
   opacity: 1;
 }
 
-.todo-list__checkbox:checked + .todo-list__text {
+.todo-list__checkbox:checked+.todo-list__text {
   text-decoration: line-through;
 }
 
