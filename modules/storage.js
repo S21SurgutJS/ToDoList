@@ -35,18 +35,18 @@ function getCurrentId() {
  */
 function addItem(item) {
   items.push(item)
-  localStorage.setItem(todoKey, JSON.stringify(items));
+  updateLocalStorage();
 }
 
 function clear() {
   items.splice(0, items.length)
+  updateLocalStorage();
 }
 
 function removeItem(id) {
   const idx = items.findIndex(i => i.id === id)
-  console.log('idx | ', idx);
   items.splice(idx, 1)
-  localStorage.setItem(todoKey, JSON.stringify(items));
+  updateLocalStorage();
 }
 
 /**
@@ -58,8 +58,12 @@ function updateItem(id, item) {
   const searchItem = items.find(i => i.id === id)
   if (searchItem) {
     Object.assign(searchItem, item)
-    localStorage.setItem(todoKey, JSON.stringify(items));
+    updateLocalStorage();
   }
 }
 
-export const storage = Object.freeze({ getItems, addItem, updateItem, getNextId, getCurrentId, init, removeItem })
+function updateLocalStorage() {
+  localStorage.setItem(todoKey, JSON.stringify(items));
+}
+
+export const storage = Object.freeze({ getItems, addItem, updateItem, getNextId, init, removeItem })

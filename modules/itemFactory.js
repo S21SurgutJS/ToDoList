@@ -36,7 +36,6 @@ export function createItem({ id, text, isDone }) {
   item.appendChild(todoListButton);
 
   todoListButton.addEventListener(('click'), (e) => {
-    console.log('ID |', id);
     storage.removeItem(id)
     render()
   }, { once: true });
