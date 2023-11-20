@@ -9,7 +9,7 @@ body {
 
 }
 
-.wrapper {
+.container {
   margin: 0 auto;
   margin-top: 100px;
   width: 634px;
@@ -58,26 +58,29 @@ body {
 }
 
 .todo-list__item {
-  background: #FFEBEB;
-  padding: 30px 20px;
-  border-radius: 10px;
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  background: #FFEBEB;
+  padding: 20px;
+  border-radius: 10px;
+  grid-template-columns: 10fr 0.5fr;
   align-items: center;
   gap: 20px;
   font-size: 18px;
 }
 
-.todo-list__item_done {
-  background: #EBFFED;
+.todo-list__label {
+  display: flex;
+  gap: 30px;
+  cursor: pointer;
 }
 
-.todo-list__item_done .todo-field__item-text {
-  text-decoration: line-through;
+.todo-list__input:hover {
+  cursor: pointer;
 }
 
-.todo-list__item-input {
-  transform: scale(2);
+todo-list__btn {
+  width: 29px;
+  height: 32px;
 }
 
 .todo-list__item:hover {

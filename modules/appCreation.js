@@ -1,6 +1,6 @@
 export const appCreation = () => {
 	const app = document.querySelector('#app');
-	app.className = 'wrapper';
+	app.className = 'container';
 	
 	const controlItem = document.createElement('form');
 	controlItem.className = 'controlItem';
