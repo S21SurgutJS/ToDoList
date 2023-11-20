@@ -1,6 +1,7 @@
 import { appCreation } from './modules/appCreation.js'
-import { todoListItemsCreation } from './modules/todoListItems.js'
+import { todoListItemRender } from './modules/todoListItemRender.js'
+import { appInit } from './modules/utils.js'
 
+appInit();
 appCreation();
-
-todoListItemsCreation({id:0, text: '1', isDone: true})
+todoListItemRender()
