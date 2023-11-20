@@ -5,33 +5,30 @@
 
 body {
   font-family: 'Inter', sans-serif;
+  height: 100vh;
+
 }
 
 .wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
-
-.container {
+  margin: 0 auto;
+  margin-top: 100px;
   width: 634px;
   height: 80%;
   padding: 40px;
   background: #E6E6E6;
   border-radius: 15px;
   display: grid;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: auto 5fr;
   gap: 30px;
 }
 
-.controls {
+.controlItem {
   display: grid;
   grid-template-columns: 1fr 0.4fr;
   height: 65px;
 }
 
-.controls__input {
+.controlItem__input {
   background: white;
   border-radius: 10px 0 0 10px;
   border: none;
@@ -39,19 +36,19 @@ body {
   padding: 0 20px;
 }
 
-.controls__btn {
+.controlItem__btn {
   background: #FBCC28;
   border-radius: 0 10px 10px 0;
   border: none;
   font-size: 18px;
 }
 
-.controls__btn:hover {
+.controlItem__btn:hover {
   cursor: pointer;
   background: #f3cc3f;
 }
 
-.todo-field {
+.todo-list {
   background: white;
   display: flex;
   flex-direction: column;
@@ -60,7 +57,7 @@ body {
   border-radius: 15px;
 }
 
-.todo-field__item {
+.todo-list__item {
   background: #FFEBEB;
   padding: 30px 20px;
   border-radius: 10px;
@@ -71,18 +68,18 @@ body {
   font-size: 18px;
 }
 
-.todo-field__item_done {
+.todo-list__item_done {
   background: #EBFFED;
 }
 
-.todo-field__item_done .todo-field__item-text {
+.todo-list__item_done .todo-field__item-text {
   text-decoration: line-through;
 }
 
-.todo-field__item-input {
+.todo-list__item-input {
   transform: scale(2);
 }
 
-.todo-field__item:hover {
+.todo-list__item:hover {
   cursor: pointer;
 }
