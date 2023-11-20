@@ -1,8 +1,9 @@
-import { app } from './constants.js'
 import { settingTaskList } from './utils.js'
 import { todoListItemRender } from './todoListItemRender.js'
 
 export const appCreation = () => {
+	const app = document.querySelector('#app');
+	
 	app.className = 'container';
 	app.innerHTML = '';
 	
