@@ -1,4 +1,4 @@
-import { deleteTask } from './utils.js'
+import { deleteTask, statusChanging } from './utils.js'
 import { todoListItemRender } from './todoListItemRender.js'
 
 export const todoListItemsCreation = (task) => {
@@ -15,6 +15,9 @@ export const todoListItemsCreation = (task) => {
 	todoListItemInput.type = 'checkbox';
 	todoListItemInput.checked = isDone;
 	todoListItemInput.setAttribute('data-id', id);
+	todoListItemInput.addEventListener('change', () => {
+		statusChanging(id);
+	})
 	
 	const todoListItemText = document.createElement('p');
 	todoListItemText.className = 'todo-list__text';

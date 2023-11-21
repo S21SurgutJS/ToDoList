@@ -1,4 +1,4 @@
-const taskList = [];
+let taskList = [];
 let count = 0;
 
 export const appInit = () => {
@@ -27,3 +27,12 @@ export const deleteTask = (id) => {
 	localStorage.setItem('taskList', JSON.stringify(taskList));
 }
 
+export const statusChanging = (id) => {
+	const index = taskList.findIndex(el => el.id === id);
+	if (index) {
+		console.log(taskList[index].isDone)
+		taskList[index].isDone = !taskList[index].isDone
+	}
+
+	localStorage.setItem('taskList', JSON.stringify(taskList));
+}
