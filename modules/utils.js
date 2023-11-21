@@ -30,7 +30,6 @@ export const deleteTask = (id) => {
 export const statusChanging = (id) => {
 	const index = taskList.findIndex(el => el.id === id);
 	if (index >= 0) {
-		console.log(taskList[index].isDone);
 		taskList[index].isDone = !taskList[index].isDone;
 	}
 
