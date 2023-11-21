@@ -29,9 +29,9 @@ export const deleteTask = (id) => {
 
 export const statusChanging = (id) => {
 	const index = taskList.findIndex(el => el.id === id);
-	if (index) {
-		console.log(taskList[index].isDone)
-		taskList[index].isDone = !taskList[index].isDone
+	if (index >= 0) {
+		console.log(taskList[index].isDone);
+		taskList[index].isDone = !taskList[index].isDone;
 	}
 
 	localStorage.setItem('taskList', JSON.stringify(taskList));

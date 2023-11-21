@@ -31,14 +31,14 @@ export const todoListItemsCreation = (task) => {
 	todoListItemButton.alt = 'Удалить запись';
 	todoListItemButton.src = './img/trash.svg';
 	todoListItemButton.addEventListener('click', () => {
-		deleteTask(id)
-		todoListItemRender()
+		deleteTask(id);
+		todoListItemRender();
 	})
 	
 	todoListItem.append(todoListItemLabel, todoListItemButton);
 	
 	const todoList = document.querySelector('ul');
-	todoList.appendChild(todoListItem)
+	todoList.appendChild(todoListItem);
 	
 	return todoListItem;
 }

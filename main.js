@@ -4,4 +4,4 @@ import { appInit } from './modules/utils.js'
 
 appInit();
 appCreation();
-todoListItemRender()
+todoListItemRender();
