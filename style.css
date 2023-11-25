@@ -4,85 +4,100 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-}
-
-.wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   height: 100vh;
 }
 
 .container {
-  width: 634px;
-  height: 80%;
-  padding: 40px;
-  background: #E6E6E6;
+  width: 534px;
+  height: auto;
   border-radius: 15px;
-  display: grid;
-  grid-template-rows: auto 1fr;
-  gap: 30px;
+  background: #E6E6E6;
+  margin: 0 auto;
+  padding: 44px 60px;
+  margin-top: 60px;
 }
 
-.controls {
+.toAdd {
   display: grid;
-  grid-template-columns: 1fr 0.4fr;
-  height: 65px;
+  grid-template-columns: 1fr 0.5fr;
+
 }
 
-.controls__input {
-  background: white;
-  border-radius: 10px 0 0 10px;
+.toAdd__input {
+  height: 46px;
+  border-radius: 10px 0px 0px 10px;
   border: none;
-  font-size: 18px;
-  padding: 0 20px;
+  outline: none;
+  padding: 10px;
 }
 
-.controls__btn {
-  background: #FBCC28;
+.toAdd__button {
+  height: 66px;
+  border: none;
   border-radius: 0 10px 10px 0;
-  border: none;
+  background: #FBCC28;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 18px;
-}
-
-.controls__btn:hover {
   cursor: pointer;
-  background: #f3cc3f;
 }
 
-.todo-field {
+.list {
   background: white;
+  width: 494px;
+  height: 79%;
+  margin-top: 22px;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 14px;
+
   padding: 20px;
-  border-radius: 15px;
 }
 
-.todo-field__item {
-  background: #FFEBEB;
-  padding: 30px 20px;
+.list__item {
+  padding: 10px;
+  list-style-type: none;
   border-radius: 10px;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
+  background: #FFEBEB;
+  display: flex;
   align-items: center;
-  gap: 20px;
+  justify-content: space-between;
+  height: 85px;
+  font-size: 18px;
+
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.list__item label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 17px;
+
+}
+
+.list__text {
+  text-decoration: line-through;
   font-size: 18px;
 }
-
-.todo-field__item_done {
+.active {
+  border-radius: 10px;
   background: #EBFFED;
 }
 
-.todo-field__item_done .todo-field__item-text {
-  text-decoration: line-through;
+.list__checkbox {
+  width: 40px;
+  height: 25px;
+  cursor: pointer;
+
 }
 
-.todo-field__item-input {
-  transform: scale(2);
+.img_trash {
+  margin-right: 15px;
 }
 
-.todo-field__item:hover {
+img {
   cursor: pointer;
 }
+
+
