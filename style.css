@@ -1,83 +1,75 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    height: 100vh;
+  height: 100vh;
 }
 
 .container {
-    width: 634px;
-    height: 70%;
-    margin: 0 auto;
-    margin-top: 30px;
-    padding: 44px 62px;
-    border-radius: 15px;
-    background: #E6E6E6;
+  width: 634px;
+  height: 70%;
+  margin: 0 auto;
+  margin-top: 30px;
+  padding: 44px 62px;
+  border-radius: 15px;
+  background: #E6E6E6;
 }
 
 .toAdd__input {
-    width: 468px;
-    height: 65px;
-    border-radius: 10px 0px 0px 10px;  
-    border: none;
+  width: 468px;
+  height: 65px;
+  border-radius: 10px 0px 0px 10px;  
+  border: none;
 }
 
 .toAdd__button {
-    width: 160px;
-    height: 65px;
-    border: none;
-    border-radius: 0     10px 10px 0;
-    background-color: rgb(184, 172, 7);
+  width: 160px;
+  height: 65px;
+  border: none;
+  border-radius: 0     10px 10px 0;
+  background-color: rgb(184, 172, 7);
 }
 
 .toAdd {
-    display: flex;
+  display: flex;
 }
 
 .list {
-    width: 588px;
-    height: 70%;
-    margin-top: 22px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    border-radius: 10px;
-    background: white;
-    overflow: auto;
+  width: 588px;
+  height: 70%;
+  margin-top: 22px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  border-radius: 10px;
+  background: white;
+  overflow: auto;
 }
 
 .list__item {
-    padding: 10px;
-    list-style-type: none;
-    display: flex;
-    background: #FFEBEB; 
-    align-items: center;
-    justify-content: space-between;
-    border-radius: 10px;
+  padding: 10px;
+  list-style-type: none;
+  display: flex;
+  background: #FFEBEB; 
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 10px;
 }
 
 .list__item label {
-    display: flex;
-    justify-content: space-between;
-    border-radius: 10px;
-    gap: 17px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10px;
+  gap: 17px;
 }
-
-/* .list__item__checkbox:checked+.list__item__text {
-    text-decoration: line-through;
-}
-
-.list__item:has(label):has(.list__item__checkbox:checked) {
-    background-color: #59d665;
-}  */
 
 .list__item__checkbox:checked+.list__item__text {
-    text-decoration: line-through;
-  }
-  
+  text-decoration: line-through;
+}
+
 .list__item:has(.list__item__checkbox:checked) {
-    background-color: #84e78e;
-  } 
+  background-color: #84e78e;
+}
